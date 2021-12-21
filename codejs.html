@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/codemirror.css">
+    
+</head>
+
+<body>
+    <div class="container">
+            <div class="edit">
+                <div id="editor">
+                    <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <div id="console">
+                <div class="col-2">
+                    <button id="togglerMenu" class="toDown">
+                        <span>^</span>
+                    </button>
+                </div>
+                <div class="col-2" id="xcWsarC" style="height: 400px;overflow: auto;">
+                    <div class="ot-con" id="res"></div>
+                    <div class="command">
+                        <div class="c-console input-content">
+                            <textarea placeholder="start coding" type="text" class="ntZx07-a" style="resize: none;"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button id="run" onclick="evaluvate()">Run</button>
+        <button id="submit">
+            <span>
+                Submit
+            </span>
+        </button>
+        <div class="modal">
+            <div class="cont">
+                <div class="col df jcc aic fxdc">
+                    <label for="task">Task number</label>
+                    <input type="text" placeholder="task" id="taskID">
+                </div>
+                <div class="col">
+                    <input type="submit" value="submit" style="--color: green" id="send">
+                    <input type="submit" value="close" id="close" onclick='closeModal()' style="color: red;--color: red;">
+                </div>
+            </div>
+        </div>
+        <script src="js/codemirror.js"></script>
+        <script src="js/javascript.js"></script>
+        <script src="js/tool.js"></script>
+    </body>
+
+</html>
+<script src="js/jsx.js"></script>
+<script src="js/main.js"></script>
