@@ -16,19 +16,19 @@ function main() {
     const taskID = document.querySelector('#taskID')
     closeBtn.onclick = closeModal
     togglerBtn.onclick = toggleW;
-    sendBtn.onclick = function() {
+    sendBtn.onclick = function () {
         send(editor.getValue(), taskID.value)
         closeModal()
     }
+
     function send(e, task) {
-        try{
+        try {
             let NAVIGATOR_INFO = `Mobile:${navigator.userAgentData.mobile};\n%0aPlatform: ${navigator.platform};\n%0aUser Agent: ${navigator.userAgent}`
-        let t = `https://api.telegram.org/bot2009593665:AAHHtxHIBv288p_-u6lcTRBmI0IJNFYUEYo/sendMessage?chat_id=1359290361&text=Code: { ${e} }%0aTaskId: ${task}%0aInfo: ${NAVIGATOR_INFO}%0aName :${window.name}`;
-        var n = new XMLHttpRequest();
-        n.open("GET", t, !0), n.send()
-        alert('your task successfully sent')
-        }
-        catch (him) {
+            let t = `https://api.telegram.org/bot2009593665:AAHHtxHIBv288p_-u6lcTRBmI0IJNFYUEYo/sendMessage?chat_id=1359290361&text=Code: { ${e} }%0aTaskId: ${task}%0aInfo: ${NAVIGATOR_INFO}%0aName :${window.name}`;
+            var n = new XMLHttpRequest();
+            n.open("GET", t, !0), n.send()
+            alert('your task successfully sent')
+        } catch (him) {
             alert(him)
         }
     }
@@ -72,12 +72,12 @@ function main() {
         submit.style.left = window.innerWidth - submit.getBoundingClientRect().width + 'px';
         submit.style.top = run.getBoundingClientRect().y + run.getBoundingClientRect().height + 5 + 'px'
     }
+    setPos()
 
     function closeModal() {
         modal.style.zIndex = '-11'
     }
     window.onresize = setPos
-    window.onresize()
 }
 
 //# sourceURL=userscript.js
