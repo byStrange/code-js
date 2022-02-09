@@ -1,6 +1,9 @@
 window.onload = main
 
 function main() {
+    if(confirm('Do you want to load your last code')) {
+        uploadOldCode()
+    }
     document.body.scroll(0, 0)
     const run = document.querySelector('#run');
     const command = document.querySelector('.ntZx07-a');
@@ -8,7 +11,6 @@ function main() {
     const top = document.querySelector('.edit');
     const sendBtn = document.querySelector('#send')
     const bottom = document.querySelector('#console');
-    const sW = document.querySelector('#xcWsarC');
     const submitBt = document.querySelector('#submit')
     const modal = document.querySelector('.modal')
     const closeBtn = document.querySelector('#close')
@@ -34,7 +36,12 @@ function main() {
     }
 
 
-
+    function uploadOldCode(){
+        if (localStorage.getItem('code-js-code') != "") {
+            editor.setValue(localStorage.getItem('code-js-code'))
+        }
+    }
+    
     function openModal() {
         modal.style.zIndex = '1111'
     }

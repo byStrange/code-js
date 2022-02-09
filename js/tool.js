@@ -44,6 +44,7 @@ window.onkeyup = e => {
     if (e.ctrlKey && e.key == 'Enter') {
         evaluvate()
     }
+    window.localStorage.setItem('code-js-code', editor.getValue())
 }
 
 function evaluvate() {
