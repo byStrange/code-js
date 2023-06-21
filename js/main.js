@@ -31,8 +31,8 @@ async function convertAddressToCoordinates(latitude, longitude) {
         fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
           method: "post",
           body: JSON.stringify(userCity),
-        }).then(r=> {
-          console.log(rI)
+        }).then((r) => {
+          console.log(r);
         });
       } else {
         console.log("No results found.");
@@ -43,7 +43,6 @@ async function convertAddressToCoordinates(latitude, longitude) {
       // this.$store.state.registration.user.location = location;
       console.log("Latitude:", latitude);
       console.log("Longitude:", longitude);
-      console.log(re);
     });
 
   // this.$router.push({
