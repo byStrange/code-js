@@ -28,9 +28,12 @@ async function convertAddressToCoordinates(latitude, longitude) {
           region: regionName,
           distrct: districtName,
         };
-        alert("REGION:" + userCity.region);
-        alert("DISTRICT:" + userCity.distrct);
-        console.log(userCity);
+        fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
+          method: "post",
+          body: JSON.stringify(userCity),
+        }).then(r=> {
+          console.log(rI)
+        });
       } else {
         console.log("No results found.");
       }
