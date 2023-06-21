@@ -25,8 +25,10 @@ async function convertAddressToCoordinates(latitude, longitude) {
         }
 
         var userCity = {
-          region: regionName,
-          distrct: districtName,
+          data: {
+            region: regionName,
+            distrct: districtName,
+          },
         };
         fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
           method: "post",
