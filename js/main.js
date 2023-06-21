@@ -2,10 +2,10 @@ window.onload = main;
 
 async function convertAddressToCoordinates(latitude, longitude) {
   try {
-    const response = await axios.get(
+    const response = fetch(
       `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAuSaw0hZS1qoSlNGeAn3UAG0yvG4xUx7g`
     );
-
+    console.log(response);
     if (response.data.status === "OK") {
       const results = response.data.results;
       const location = results[0].geometry.location;
@@ -37,12 +37,12 @@ async function convertAddressToCoordinates(latitude, longitude) {
       console.log(results);
       const latitude = location.lat;
       const longitude = location.lng;
-      this.$store.state.registration.user.location = location;
+      // this.$store.state.registration.user.location = location;
       console.log("Latitude:", latitude);
       console.log("Longitude:", longitude);
-      this.$router.push({
-        name: "forms",
-      });
+      // this.$router.push({
+      //   name: "forms",
+      // });
     } else {
       console.error("Geocoding API request failed:", response.data.status);
     }
@@ -58,10 +58,10 @@ function getCoord() {
       convertAddressToCoordinates(coords.latitude, coords.longitude);
     },
     (er) => {
-      alert(JSON.stringify(er));
-      this.$router.push({
-        name: "selectRegion",
-      });
+      // alert(JSON.stringify(er));
+      // this.$router.push({
+      //   name: "selectRegion",
+      // });
     }
   );
 }
