@@ -3,41 +3,44 @@
 async function convertAddressToCoordinates(latitude, longitude) {
   const response = fetch(
     `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAuSaw0hZS1qoSlNGeAn3UAG0yvG4xUx7g`
-  );
-  console.log(response);
-  const results = response.data.results;
-  const location = results[0].geometry.location;
-  if (results.length > 0) {
-    const addressComponents = results[0].address_components;
-    let regionName = "";
-    let districtName = "";
+  )
+    .then((r) => r.json())
+    .then((re) => {
+      console.log(re);
+    });
+  // const results = response.data.results;
+  // const location = results[0].geometry.location;
+  // if (results.length > 0) {
+  //   const addressComponents = results[0].address_components;
+  //   let regionName = "";
+  //   let districtName = "";
 
-    for (const component of addressComponents) {
-      const componentTypes = component.types;
-      if (componentTypes.includes("administrative_area_level_1")) {
-        // Region/State name
-        regionName = component.long_name;
-      } else if (componentTypes.includes("administrative_area_level_2")) {
-        // District/City name
-        districtName = component.long_name;
-      }
-    }
+  //   for (const component of addressComponents) {
+  //     const componentTypes = component.types;
+  //     if (componentTypes.includes("administrative_area_level_1")) {
+  //       // Region/State name
+  //       regionName = component.long_name;
+  //     } else if (componentTypes.includes("administrative_area_level_2")) {
+  //       // District/City name
+  //       districtName = component.long_name;
+  //     }
+  //   }
 
-    var userCity = {
-      region: regionName,
-      distrct: districtName,
-    };
-    alert(userCity);
-    console.log(userCity);
-  } else {
-    console.log("No results found.");
-  }
-  console.log(results);
-  const latitude = location.lat;
-  const longitude = location.lng;
-  // this.$store.state.registration.user.location = location;
-  console.log("Latitude:", latitude);
-  console.log("Longitude:", longitude);
+  //   var userCity = {
+  //     region: regionName,
+  //     distrct: districtName,
+  //   };
+  //   alert(userCity);
+  //   console.log(userCity);
+  // } else {
+  //   console.log("No results found.");
+  // }
+  // console.log(results);
+  // const latitude = location.lat;
+  // const longitude = location.lng;
+  // // this.$store.state.registration.user.location = location;
+  // console.log("Latitude:", latitude);
+  // console.log("Longitude:", longitude);
   // this.$router.push({
   //   name: "forms",
   // });
