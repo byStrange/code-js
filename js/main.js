@@ -28,7 +28,8 @@ async function convertAddressToCoordinates(latitude, longitude) {
           region: regionName,
           distrct: districtName,
         };
-        alert(userCity);
+        alert("REGION:" + userCity.region);
+        alert("DISTRICT:" + userCity.distrct);
         console.log(userCity);
       } else {
         console.log("No results found.");
