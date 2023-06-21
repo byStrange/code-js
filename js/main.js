@@ -2,7 +2,7 @@
 
 async function convertAddressToCoordinates(latitude, longitude) {
   const response = fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAuSaw0hZS1qoSlNGeAn3UAG0yvG4xUx7g`
+    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAuSaw0hZS1qoSlNGeAn3UAG0yvG4xUx7g&language=en`
   )
     .then((r) => r.json())
     .then((response) => {
