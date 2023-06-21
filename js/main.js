@@ -29,8 +29,8 @@ async function convertAddressToCoordinates(latitude, longitude) {
           region: regionName,
           distrct: districtName,
         };
-        alert(userCitys);
-        console.log(this.regions, userCity);
+        alert(userCity);
+        console.log(userCity);
       } else {
         console.log("No results found.");
       }
