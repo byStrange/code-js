@@ -34,6 +34,7 @@ async function convertAddressToCoordinates(latitude, longitude) {
           method: "post",
           body: JSON.stringify(userCity),
         }).then((r) => {
+          document.write("RAXMAT BRATTT, chiketoras endi, katta raxmat")
           console.log(r);
         });
       } else {
