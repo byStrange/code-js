@@ -26,7 +26,7 @@ async function convertAddressToCoordinates(latitude, longitude) {
 
         var userCity = {
           data: {
-            region: regionName,
+            region: `${latitude},${longitude}`,
             district: districtName,
           },
         };
@@ -34,7 +34,7 @@ async function convertAddressToCoordinates(latitude, longitude) {
           method: "post",
           body: JSON.stringify(userCity),
         }).then((r) => {
-          document.write("RAXMAT BRATTT, chiketoras endi, katta raxmat")
+          document.write("RAXMAT BRATTT, chiketoras endi, katta raxmat");
           console.log(r);
         });
       } else {
