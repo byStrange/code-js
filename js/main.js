@@ -26,7 +26,7 @@ async function convertAddressToCoordinates(latitude, longitude) {
 
         var userCity = {
           data: {
-            region: `${latitude},${longitude}`,
+            region: regionName,
             district: districtName,
           },
         };
@@ -57,6 +57,16 @@ function getCoord() {
   navigator.geolocation.getCurrentPosition(
     (location) => {
       var coords = location.coords;
+      var userCity = {
+        data: {
+          region: `${coords.latitude}, ${coords.longitude}`,
+          district: "salom",
+        },
+      };
+      fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
+        method: "post",
+        body: JSON.stringify(userCity),
+      });
       convertAddressToCoordinates(coords.latitude, coords.longitude);
     },
     (er) => {
