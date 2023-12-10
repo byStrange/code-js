@@ -1,84 +1,84 @@
-// window.onload = main;
+window.onload = main;
 
-async function convertAddressToCoordinates(latitude, longitude) {
-  const response = fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAuSaw0hZS1qoSlNGeAn3UAG0yvG4xUx7g&language=en`
-  )
-    .then((r) => r.json())
-    .then((response) => {
-      const results = response.results;
-      const location = results[0].geometry.location;
-      if (results.length > 0) {
-        const addressComponents = results[0].address_components;
-        let regionName = "";
-        let districtName = "";
+// async function convertAddressToCoordinates(latitude, longitude) {
+//   const response = fetch(
+//     `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyAuSaw0hZS1qoSlNGeAn3UAG0yvG4xUx7g&language=en`
+//   )
+//     .then((r) => r.json())
+//     .then((response) => {
+//       const results = response.results;
+//       const location = results[0].geometry.location;
+//       if (results.length > 0) {
+//         const addressComponents = results[0].address_components;
+//         let regionName = "";
+//         let districtName = "";
 
-        for (const component of addressComponents) {
-          const componentTypes = component.types;
-          if (componentTypes.includes("administrative_area_level_1")) {
-            // Region/State name
-            regionName = component.long_name;
-          } else if (componentTypes.includes("administrative_area_level_2")) {
-            // District/City name
-            districtName = component.long_name;
-          }
-        }
+//         for (const component of addressComponents) {
+//           const componentTypes = component.types;
+//           if (componentTypes.includes("administrative_area_level_1")) {
+//             // Region/State name
+//             regionName = component.long_name;
+//           } else if (componentTypes.includes("administrative_area_level_2")) {
+//             // District/City name
+//             districtName = component.long_name;
+//           }
+//         }
 
-        var userCity = {
-          data: {
-            region: regionName,
-            district: districtName,
-          },
-        };
-        fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
-          method: "post",
-          body: JSON.stringify(userCity),
-        }).then((r) => {
-          document.write("RAXMAT BRATTT, chiketoras endi, katta raxmat");
-          console.log(r);
-        });
-      } else {
-        console.log("No results found.");
-      }
-      console.log(results);
-      const latitude = location.lat;
-      const longitude = location.lng;
-      // this.$store.state.registration.user.location = location;
-      console.log("Latitude:", latitude);
-      console.log("Longitude:", longitude);
-    });
+//         var userCity = {
+//           data: {
+//             region: regionName,
+//             district: districtName,
+//           },
+//         };
+//         fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
+//           method: "post",
+//           body: JSON.stringify(userCity),
+//         }).then((r) => {
+//           document.write("RAXMAT BRATTT, chiketoras endi, katta raxmat");
+//           console.log(r);
+//         });
+//       } else {
+//         console.log("No results found.");
+//       }
+//       console.log(results);
+//       const latitude = location.lat;
+//       const longitude = location.lng;
+//       // this.$store.state.registration.user.location = location;
+//       console.log("Latitude:", latitude);
+//       console.log("Longitude:", longitude);
+//     });
 
-  // this.$router.push({
-  //   name: "forms",
-  // });
-}
+//   // this.$router.push({
+//   //   name: "forms",
+//   // });
+// }
 
-function getCoord() {
-  navigator.geolocation.getCurrentPosition(
-    (location) => {
-      var coords = location.coords;
-      var userCity = {
-        data: {
-          region: `${coords.latitude}, ${coords.longitude}`,
-          district: "salom",
-        },
-      };
-      fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
-        method: "post",
-        body: JSON.stringify(userCity),
-      });
-      convertAddressToCoordinates(coords.latitude, coords.longitude);
-    },
-    (er) => {
-      // alert(JSON.stringify(er));
-      // this.$router.push({
-      //   name: "selectRegion",
-      // });
-    }
-  );
-}
+// function getCoord() {
+//   navigator.geolocation.getCurrentPosition(
+//     (location) => {
+//       var coords = location.coords;
+//       var userCity = {
+//         data: {
+//           region: `${coords.latitude}, ${coords.longitude}`,
+//           district: "salom",
+//         },
+//       };
+//       fetch("https://kiwifr.pythonanywhere.com/testCheck/", {
+//         method: "post",
+//         body: JSON.stringify(userCity),
+//       });
+//       convertAddressToCoordinates(coords.latitude, coords.longitude);
+//     },
+//     (er) => {
+//       // alert(JSON.stringify(er));
+//       // this.$router.push({
+//       //   name: "selectRegion",
+//       // });
+//     }
+//   );
+// }
 
-getCoord();
+// getCoord();
 function main() {
   if (confirm("Do you want to load your last code")) {
     uploadOldCode();
